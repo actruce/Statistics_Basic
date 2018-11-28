@@ -1,0 +1,88 @@
+---
+title: "Normal Distribution Likelihood"
+output:
+  html_document:
+    df_print: paged
+---
+
+Finding best likelihood for c(-1, -.5, 0, .5, 1)
+
+Assuming they are normal distribution.
+
+
+### 1st : likelihood of N(-1, 1)
+
+```{r}
+mu = -1; sigma = 1
+x = seq(mu-3, mu+3, 0.01)
+plot(x, dnorm(x, mu, sigma), type='l', lwd=2, col='red', ylim=c(-0.02, 0.6))
+xp = seq(-1, 1, length=5)
+yp = dnorm(xp, mu, sigma)
+
+for(i in seq(1, 5, 1)){
+  segments(xp[i], -0.03, xp[i], yp[i], col = 'gray', lty=3, lwd=2)
+  text(xp[i], yp[i]+0.02, labels=round(yp[i], 4))
+}
+```
+
+Calculating likelihood value of N(-1, 1)
+
+```{r}
+likelihood_1st= 1
+for(y in yp){
+  likelihood_1st = likelihood_1st*y
+}
+likelihood_1st
+```
+
+
+### 2nd : likelihood of N(0, 1)
+
+```{r}
+mu = 0; sigma = 1
+x = seq(mu-3, mu+3, 0.01)
+plot(x, dnorm(x, mu, sigma), type='l', lwd=2, col='red', ylim=c(-0.02, 0.6))
+xp = seq(-1, 1, length=5)
+yp = dnorm(xp, mu, sigma)
+
+for(i in seq(1, 5, 1)){
+  segments(xp[i], -0.03, xp[i], yp[i], col = 'gray', lty=3, lwd=2)
+  text(xp[i], yp[i]+0.02, labels=round(yp[i], 4))
+}
+```
+
+Calculating likelihood value of N(0, 1)
+
+```{r}
+likelihood_2nd = 1
+for(y in yp){
+  likelihood_2nd = likelihood_2nd * y
+}
+likelihood_2nd
+```
+
+
+### 3rd : likelihood of N(03, 1)
+
+```{r}
+mu = 3; sigma = 1
+x = seq(mu-5, mu+3, 0.01)
+plot(x, dnorm(x, mu, sigma), type='l', lwd=2, col='red')
+xp = seq(-1, 1, length=5)
+yp = dnorm(xp, mu, sigma)
+
+for(i in seq(1, 5, 1)){
+  segments(xp[i], -0.03, xp[i], yp[i], col = 'gray', lty=3, lwd=2)
+  text(xp[i], yp[i]+0.02, labels=round(yp[i], 4))
+}
+```
+
+Calculating likelihood value of N(3, 1)
+
+```{r}
+likelihood_3rd = 1
+for(y in yp){
+  likelihood_3rd = likelihood_3rd * y
+}
+likelihood_3rd
+```
