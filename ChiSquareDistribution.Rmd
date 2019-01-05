@@ -1,0 +1,39 @@
+---
+title: "Chi Square Distribution"
+output: html_notebook
+---
+
+### Let's draw standard normal distribution N(0,1)
+```{r}
+curve(dnorm(x), xlim=c(-5,5),ylim=c(0,0.6),ylab="Standard Normal Dist.")
+legend(2.5,0.3,c("mean=0, std=1"))
+```
+
+
+
+### Let's compare normal and Chi-square distribution with d.f. = 1
+
+```{r}
+curve(dnorm(x), xlim=c(-2,8),ylim=c(0,1.2),ylab="Normal and Chi Square Dist.")
+curve(dchisq(x,1), col="red", lty=2, add=TRUE)
+legend(5,0.8,c("Normal", "Chi.Sq d.f.=1"), col=c("black", "red"),lty=1:2)
+```
+
+
+It is referred by http://courses.atlas.illinois.edu/fall2016/STAT/STAT200/RProgramming/NormalChisqT.html
+
+
+
+### Let's draw Chi-Sqaure Distribution
+
+```{r}
+curve(dchisq(x,1),xlim=c(0,15),ylim=c(0,0.6),ylab="Chi Square Density")
+curve(dchisq(x,2),col="red",lty=2,add=TRUE)
+curve(dchisq(x,3),col="blue",lty=3,add=TRUE)
+curve(dchisq(x,5),col="dark green",lty=4,add=TRUE)
+curve(dchisq(x,10),col="brown",lty=5,add=TRUE)
+legend(12,0.55,c("k=1","k=2","k=3","k=5","k=10"),
+       col=c("black","red","blue","dark green","brown"),lty=1:5)
+```
+
+
