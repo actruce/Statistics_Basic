@@ -1,0 +1,71 @@
+---
+title: "Normal Probability Plot"
+output: html_notebook
+---
+
+## 1. Normal Distribution
+
+### Make Normal Random Samples with Mean = 50 and Standard Deviation = 15
+
+```{r}
+weight = rnorm(58, 50, 15)
+```
+
+### Let's draw an Histogram of weight
+
+```{r}
+hist(weight)
+```
+
+### Let's draw a Q-Q Plot of it.
+
+Q-Q Plot is Theoretical Percentile vs. Actual Percentile.
+
+```{r}
+qqnorm(weight)
+qqline(weight)
+```
+
+
+
+## 2. Left Skewed Distribution
+
+
+``` {r}
+set.seed(5)
+weight_skewed_left = sample(10:80, size = 58, replace = TRUE, prob = 80:10)
+```
+
+### Let's draw Histogram
+``` {r}
+hist(weight_skewed_left)
+```
+
+### Let's draw QQ Plot
+``` {r}
+qqnorm(weight_skewed_left)
+qqline(weight_skewed_left)
+```
+
+## 3. Right Skewed Distribution
+
+``` {r}
+set.seed(8)
+weight_skewed_right = sample(10:80, size = 58, replace = TRUE, prob = 10:80)
+```
+
+
+### Let's draw Histogram
+``` {r}
+hist(weight_skewed_right)
+```
+
+
+### Let's draw QQ Plot
+``` {r}
+qqnorm(weight_skewed_right)
+qqline(weight_skewed_right)
+```
+
+
+
